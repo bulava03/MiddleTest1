@@ -11,3 +11,7 @@ def example_file(tmpdir):
     with open(file_path, 'w') as file:
         file.write('The quick brown fox jumps over the lazy dog.\n' * 10)
     return file_path
+
+
+def test_read_file(example_file):
+    assert read_file(example_file) == ('The quick brown fox jumps over the lazy dog. ' * 10)
