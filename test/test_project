@@ -23,3 +23,11 @@ def test_read_file(example_file):
 ])
 def test_count_words(text, expected):
     assert count_words(text) == expected
+
+
+@pytest.mark.parametrize('word_count, expected', [
+    ({'the': 2, 'quick': 1, 'brown': 1, 'fox': 1, 'jumps': 1, 'over': 1, 'lazy': 1, 'dog': 1}, [('the', 2), ('quick', 1), ('brown', 1), ('fox', 1), ('jumps', 1), ('over', 1), ('lazy', 1), ('dog', 1)]),
+    ({}, []),
+])
+def test_sort_words(word_count, expected):
+    assert sort_words(word_count) == expected
