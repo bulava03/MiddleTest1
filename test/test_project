@@ -1,0 +1,13 @@
+import os
+import re
+import pytest
+
+from word_counter import read_file, count_words, sort_words, write_file
+
+
+@pytest.fixture
+def example_file(tmpdir):
+    file_path = tmpdir.join('example.txt')
+    with open(file_path, 'w') as file:
+        file.write('The quick brown fox jumps over the lazy dog.\n' * 10)
+    return file_path
