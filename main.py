@@ -18,6 +18,11 @@ def count_words(text):
     return word_count
 
 
+def sort_words(word_count):
+    sorted_words = sorted(word_count.items(), key=lambda x: x[1], reverse=True)
+    return sorted_words[:10]
+
+
 if __name__ == '__main__':
     file_path = 'example.txt'
     output_file_path = 'output.txt'
