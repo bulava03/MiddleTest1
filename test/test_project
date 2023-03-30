@@ -15,3 +15,11 @@ def example_file(tmpdir):
 
 def test_read_file(example_file):
     assert read_file(example_file) == ('The quick brown fox jumps over the lazy dog. ' * 10)
+
+
+@pytest.mark.parametrize('text, expected', [
+    ('The quick brown fox jumps over the lazy dog.', {'the': 2, 'quick': 1, 'brown': 1, 'fox': 1, 'jumps': 1, 'over': 1, 'lazy': 1, 'dog': 1}),
+    ('', {}),
+])
+def test_count_words(text, expected):
+    assert count_words(text) == expected
