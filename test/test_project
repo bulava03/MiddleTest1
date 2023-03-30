@@ -31,3 +31,14 @@ def test_count_words(text, expected):
 ])
 def test_sort_words(word_count, expected):
     assert sort_words(word_count) == expected
+
+
+@pytest.mark.parametrize('word_count, expected', [
+    ([('the', 2), ('quick', 1), ('brown', 1), ('fox', 1), ('jumps', 1), ('over', 1), ('lazy', 1), ('dog', 1)], 'the: 2\nquick: 1\nbrown: 1\nfox: 1\njumps: 1\nover: 1\nlazy: 1\ndog: 1\n'),
+    ([], ''),
+])
+def test_write_file(tmpdir, word_count, expected):
+    output_file_path = tmpdir.join('output.txt')
+    write_file(word_count, str(output_file_path))
+    with open(output_file_path, 'r') as file:
+        assert file.read() == expected
