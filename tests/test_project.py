@@ -1,8 +1,6 @@
-import os
-import re
 import pytest
 
-from word_counter import read_file, count_words, sort_words, write_file
+from main import read_file, count_words, sort_words, write_file
 
 
 @pytest.fixture
