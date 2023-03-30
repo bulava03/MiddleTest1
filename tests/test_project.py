@@ -16,7 +16,8 @@ def test_read_file(example_file):
 
 
 @pytest.mark.parametrize('text, expected', [
-    ('The quick brown fox jumps over the lazy dog.', {'the': 2, 'quick': 1, 'brown': 1, 'fox': 1, 'jumps': 1, 'over': 1, 'lazy': 1, 'dog': 1}),
+    ('The quick brown fox jumps over the lazy dog.',
+     {'the': 2, 'quick': 1, 'brown': 1, 'fox': 1, 'jumps': 1, 'over': 1, 'lazy': 1, 'dog': 1}),
     ('', {}),
 ])
 def test_count_words(text, expected):
@@ -24,7 +25,8 @@ def test_count_words(text, expected):
 
 
 @pytest.mark.parametrize('word_count, expected', [
-    ({'the': 2, 'quick': 1, 'brown': 1, 'fox': 1, 'jumps': 1, 'over': 1, 'lazy': 1, 'dog': 1}, [('the', 2), ('quick', 1), ('brown', 1), ('fox', 1), ('jumps', 1), ('over', 1), ('lazy', 1), ('dog', 1)]),
+    ({'the': 2, 'quick': 1, 'brown': 1, 'fox': 1, 'jumps': 1, 'over': 1, 'lazy': 1, 'dog': 1},
+     [('the', 2), ('quick', 1), ('brown', 1), ('fox', 1), ('jumps', 1), ('over', 1), ('lazy', 1), ('dog', 1)]),
     ({}, []),
 ])
 def test_sort_words(word_count, expected):
@@ -32,7 +34,8 @@ def test_sort_words(word_count, expected):
 
 
 @pytest.mark.parametrize('word_count, expected', [
-    ([('the', 2), ('quick', 1), ('brown', 1), ('fox', 1), ('jumps', 1), ('over', 1), ('lazy', 1), ('dog', 1)], 'the: 2\nquick: 1\nbrown: 1\nfox: 1\njumps: 1\nover: 1\nlazy: 1\ndog: 1\n'),
+    ([('the', 2), ('quick', 1), ('brown', 1), ('fox', 1), ('jumps', 1), ('over', 1), ('lazy', 1), ('dog', 1)],
+     'the: 2\nquick: 1\nbrown: 1\nfox: 1\njumps: 1\nover: 1\nlazy: 1\ndog: 1\n'),
     ([], ''),
 ])
 def test_write_file(tmpdir, word_count, expected):
